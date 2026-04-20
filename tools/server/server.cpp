@@ -88,6 +88,11 @@ int main(int argc, char ** argv) {
 
     common_params_print_info(params);
 
+    if (params.download_only) {
+        LOG_INF("%s: model downloaded successfully, exiting\n", __func__);
+        return 0;
+    }
+
     // validate batch size for embeddings
     // embeddings require all tokens to be processed in a single ubatch
     // see https://github.com/ggml-org/llama.cpp/issues/12836
